@@ -17,5 +17,7 @@ sealed class OutputWriter
     public static void printFormat(String format, Object object){
         System.out.printf(format,object);
     }
-
+    public static void printFormat2(String format, Object object,Object object2){
+        System.out.printf(format,object,object2);
+    }
 }

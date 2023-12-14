@@ -39,9 +39,9 @@ public class Parser {
     }
 
     // 양수인가
-    private static boolean isNotPositiveInteger(Integer value) {
-        return value < POSITIVE_NUMBER_MINIMUM_RANGE;
-    }
+//    private static boolean isNotPositiveInteger(Integer value) {
+//        return value < POSITIVE_NUMBER_MINIMUM_RANGE;
+//    }
 
     // == 정규표현식 제약 조건== //
     private static boolean matchWithRegex(String input, Pattern regex) {
