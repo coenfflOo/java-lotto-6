@@ -8,7 +8,7 @@ public enum PrintFormat {
     RESPONSE_LOTTO_NUMBER("[%s]"),
     RESPONSE_LOTTO_RESULT("%d개 일치, 보너스 볼 일치 (%s원) - %d개"),
     RESPONSE_BONUS_RESULT("%d개 일치 (%s원) - %d개"),
-    RESPONSE_LOTTO_PRICE("총 수익률은 %.2f입니다.");
+    RESPONSE_LOTTO_PRICE("총 수익률은 %.1f%%입니다.");
 
     private final String format;
     private final DecimalFormat priceFormat;

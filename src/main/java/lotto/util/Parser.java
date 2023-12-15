@@ -11,7 +11,7 @@ public class Parser {
     // 1000원 단위로 떨어지는 숫자인가
     private static final Pattern REGEX_NUMBER_PATTERN = Pattern.compile("^\\d{1,}$");
     // 쉼표(,)를 기준으로 구분되는가
-    private static final Pattern REGEX_DELIMITER_PATTERN = Pattern.compile("^\\d{1,}(,\\d{1,}){5,}\\*$");
+    private static final Pattern REGEX_DELIMITER_PATTERN = Pattern.compile("^(\\d+),(\\d+),(\\d+),(\\d+),(\\d+),(\\d+)$");
     // Default Constructor
     private Parser() {
     }

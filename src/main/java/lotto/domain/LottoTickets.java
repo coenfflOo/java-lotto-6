@@ -25,8 +25,8 @@ public class LottoTickets {
     }
 
     private void buyLotto() {
-        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         for (int i = 0; i < amount; i++) {
+            List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
             lottos.add(Lotto.of(numbers));
         }
     }
@@ -37,8 +37,8 @@ public class LottoTickets {
 
     private static boolean isDivide(int input){
         if (input%1000 == 0)
-            return true;
-        return false;
+            return false;
+        return true;
     }
 
     public int getAmount() {

@@ -12,9 +12,12 @@ public final class OutputView extends OutputWriter {
 
     public static void printLottoTickets(int amount, List<Lotto> lottos) {
         printFormat(RESPONSE_LOTTO_AMOUNT.getFormat(), amount);
+        printNewLine();
         for (Lotto lotto : lottos) {
             printFormat(RESPONSE_LOTTO_NUMBER.getFormat(), lotto.getNumbers());
+            printNewLine();
         }
+        printNewLine();
     }
 
     public static void printResult(Map<Rank, Integer> results) {
@@ -32,4 +35,7 @@ public final class OutputView extends OutputWriter {
         }
     }
 
+    public static void printProfit(double profit) {
+        printFormat(RESPONSE_LOTTO_PRICE.getFormat(),profit);
+    }
 }
