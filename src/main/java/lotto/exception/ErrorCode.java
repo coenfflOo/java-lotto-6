@@ -4,7 +4,11 @@ import java.util.function.BooleanSupplier;
 
 public enum ErrorCode {
     INVALID_AMOUNT_INPUT("금액은 1000단위로 떨어지는 숫자여야 합니다. 다시 입력해 주세요."),
-    INVALID_INPUT("입력값이 올바르지 않습니다. 다시 입력해 주세요.");
+    INVALID_INPUT("입력값이 올바르지 않습니다. 다시 입력해 주세요."),
+    INVALID_DELIMITER("구분자는 쉼표(,)여야 합니다. 다시 입력해 주세요."),
+    INVALID_LOTTO_NUMBER("로또 번호는 1~45 사이의 숫자여야 합니다. 다시 입력해 주세요."),
+    INVALID_LOTTO_SIZE("로또 번호는 6개여야 합니다. 다시 입력해 주세요."),
+    INVALID_LOTTO_DUPLICATE("로또 번호는 중복될 수 없습니다. 다시 입력해 주세요.");
 
     public static final String ERROR_PREFIX = "[ERROR] ";
     private final String message;

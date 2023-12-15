@@ -1,12 +1,16 @@
 package lotto.domain;
 
+import static lotto.exception.ErrorCode.*;
+
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
 
-    private Lotto(List<Integer> numbers) {
+    public Lotto(List<Integer> numbers) {
         validate(numbers);
         this.numbers = numbers;
     }
@@ -16,9 +20,8 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
-        }
+        INVALID_LOTTO_SIZE.validate(() -> sizeValidate(numbers));
+        INVALID_LOTTO_DUPLICATE.validate(()->duplicateValidate(numbers));
     }
 
     public String getNumbers() {
@@ -29,5 +32,12 @@ public class Lotto {
             .orElseThrow(IllegalArgumentException::new);
     }
 
-    // TODO: 추가 기능 구현
+    private boolean sizeValidate(List<Integer> numbers) {
+        return numbers.size() != 6;
+    }
+
+    private boolean duplicateValidate(List<Integer> numbers) {
+        HashSet<Integer> setNumber = new HashSet<>(numbers);
+        return setNumber.size() != 6;
+    }
 }
