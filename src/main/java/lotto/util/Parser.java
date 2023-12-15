@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class Parser {
     private static final String DELIMITER = ",";
     // 1000원 단위로 떨어지는 숫자인가
-    private static final Pattern REGEX_PRICE_PATTERN = Pattern.compile("^\\d{1,}000$");
+    private static final Pattern REGEX_NUMBER_PATTERN = Pattern.compile("^\\d{1,}$");
     // 쉼표(,)를 기준으로 구분되는가
     private static final Pattern REGEX_DELIMITER_PATTERN = Pattern.compile("^\\d{1,}(,\\d{1,}){5,}\\*$");
     // Default Constructor
@@ -19,7 +19,7 @@ public class Parser {
     //== Business Logic ==//
     public static int parseInput(String input) {
         INVALID_INPUT.validate(() -> hasWhitespace(input));
-        INVALID_AMOUNT_INPUT.validate(() -> isInvalidMoneyPattern(input));
+        INVALID_INPUT.validate(() -> isInvalidNumberPattern(input));
         return Integer.parseInt(input);
     }
 
@@ -49,8 +49,8 @@ public class Parser {
     }
 
     // 패턴에 맞는가
-    private static boolean isInvalidMoneyPattern(String input) {
-        return matchWithRegex(input, REGEX_PRICE_PATTERN);
+    private static boolean isInvalidNumberPattern(String input) {
+        return matchWithRegex(input, REGEX_NUMBER_PATTERN);
     }
     private static boolean isInvalidLottoPattern(String input) {
         return matchWithRegex(input, REGEX_DELIMITER_PATTERN);

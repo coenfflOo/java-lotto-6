@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import static lotto.exception.ErrorCode.INVALID_AMOUNT_INPUT;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 import java.util.List;
@@ -17,6 +19,7 @@ public class LottoTickets {
     }
 
     public static LottoTickets of(int money) {
+        validate(money);
         return new LottoTickets(money);
     }
 
@@ -25,6 +28,16 @@ public class LottoTickets {
         for (int i = 0; i < amount; i++) {
             lottos.add(Lotto.of(numbers));
         }
+    }
+
+    private static void validate(int money){
+        INVALID_AMOUNT_INPUT.validate(()->isDivide(money));
+    }
+
+    private static boolean isDivide(int input){
+        if (input%1000 == 0)
+            return true;
+        return false;
     }
 
     public int getAmount() {

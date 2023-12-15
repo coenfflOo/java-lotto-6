@@ -24,6 +24,10 @@ public class Lotto {
         INVALID_LOTTO_DUPLICATE.validate(()->duplicateValidate(numbers));
     }
 
+    public List<Integer> getNumber(){
+        return numbers;
+    }
+
     public String getNumbers() {
         Arrays.sort(numbers.toArray());
         return numbers.stream()
