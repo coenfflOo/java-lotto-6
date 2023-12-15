@@ -4,6 +4,7 @@ import static lotto.exception.ErrorCode.INVALID_LOTTO_DUPLICATE;
 import static lotto.exception.ErrorCode.INVALID_LOTTO_NUMBER;
 
 public class LottoNumber {
+
     private final int number;
 
     public LottoNumber(int number, Lotto lotto) {
@@ -26,6 +27,10 @@ public class LottoNumber {
 
     private boolean invalidRange(int number){
         return number < 1 || number > 45;
+    }
+
+    public int getNumber() {
+        return number;
     }
     // 여기에 필요한 메소드들을 추가합니다.
 }

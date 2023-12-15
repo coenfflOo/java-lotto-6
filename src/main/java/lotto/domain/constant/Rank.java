@@ -18,6 +18,31 @@ public enum Rank {
         this.bonusMatch = bonusMatch;
     }
 
-    //TODO: 추가 기능 구현
+    public static Rank valueOf(int matchCount, boolean matchBonus) {
+        // 2등과 3등은 일치하는 번호가 5개일 때, 보너스 번호 일치 여부에 따라 결정됩니다.
+        if (matchCount == 5 && matchBonus) {
+            return Rank.SECOND;
+        }
+        if (matchCount == 5 && !matchBonus) {
+            return Rank.THIRD;
+        }
+
+        for (Rank rank : values()) {
+            if (matchCount == rank.matchCount && rank != Rank.SECOND) {
+                return rank;
+            }
+        }
+
+        return Rank.NONE;
+    }
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public int getPrizeMoney() {
+        return prizeMoney;
+    }
+
 }
 

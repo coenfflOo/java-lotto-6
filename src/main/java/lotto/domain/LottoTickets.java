@@ -7,9 +7,10 @@ import java.util.*;
 import java.util.List;
 
 public class LottoTickets {
-
+    //구매한 양
     private final int amount;
 
+    //구매한 양 만큼 로또 발행
     private final List<Lotto> lottos;
 
     private LottoTickets(int money) {
